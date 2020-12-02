@@ -47,15 +47,18 @@ class Dashboard extends React.Component {
             <option value="3">Recently Contacted</option>
           </select>
         </div>
-      <div className="marketers">
+      <div className="marketers" style={{display: "grid", justifyContent: "center"}}>
+        <div className="usernameContainer" style={{display: "flex", justifyContent: "align-left"}}>
         <h3 className="adminSectionHeader" style={{ marginLeft: "20px" }}>Leads</h3>
-        <div className="leadsTable" style={{ marginLeft: "20px" }}>
+        </div>
+        <div className="leadsTable" style={{ justifyContent: "center", marginLeft: "20px" }}>
           <table className="center">
             <thead>
               <tr>
                 <th>Name</th>
                 <th>Last Contacted</th>
                 <th>Phone</th>
+                <th>Email</th>
               </tr>
             </thead>
             <tbody>
@@ -64,6 +67,7 @@ class Dashboard extends React.Component {
                   <td><Link to={`/leads/${lead.id}`}>{lead.name}</Link></td>
                   <td>{lead.lastContacted}</td>
                   <td>{lead.phone}</td>
+                  <td>{lead.email}</td>
                 </tr>
               ))}
             </tbody>
