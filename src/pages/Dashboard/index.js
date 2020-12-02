@@ -2,6 +2,7 @@ import React  from "react";
 import KaimahiContext from "../../KaimahiContext";
 import config from "../../config";
 import { Link } from "react-router-dom";
+import NavBar from "../NavBar"
 
 
 class Dashboard extends React.Component {
@@ -32,6 +33,7 @@ class Dashboard extends React.Component {
     render() {
       return (
         <div className="dashboardContainer">
+          
         <h2 className="viewedUser" style={{display: 'flex', justifyContent: 'center'}}>{this.context.currentUser.name}</h2>
         <div
           className="adminTools"
