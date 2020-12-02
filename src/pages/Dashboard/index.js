@@ -11,6 +11,10 @@ class Dashboard extends React.Component {
       leads: []
     }
 
+    // handleFilter = (e) => {
+    //   e.
+    // }
+
     componentDidMount() {
       const { currentUser } = this.context
       fetch(`${config.CONFIG_API_ENDPOINT}/api/v1/accounts/${currentUser.id}`, {
@@ -33,8 +37,10 @@ class Dashboard extends React.Component {
     render() {
       return (
         <div className="dashboardContainer">
-          
-        <h2 className="viewedUser" style={{display: 'flex', justifyContent: 'center'}}>{this.context.currentUser.name}</h2>
+         <div className= "userHeader" style={{display: "grid", justifyContent: "center"}}>
+        <h2 className="viewedUser" style={{display: 'flex', justifyContent: 'space-between'}}>{this.context.currentUser.name}</h2>
+        <button type="button" style={{marginBottom: "20px"}}>Logout</button>
+        </div> 
         <div
           className="adminTools"
           style={{
