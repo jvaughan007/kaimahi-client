@@ -9,9 +9,11 @@ import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import Dashboard from "./pages/Dashboard";
 import ViewLead from "./pages/ViewLead";
-// import DeleteLead from "./pages/DeleteLead";
+import AddLead from "./pages/AddLeadForm"
+import NavBar from "./components/NavBar";
 import KaimahiContext from "./KaimahiContext";
 import Signup from "./pages/Signup";
+import './App.css';
 
 const PrivateRoute = ({component: Component, currentUser, ...rest}) => {
   const [loading, setLoading] = useState(true)
@@ -52,12 +54,14 @@ class App extends Component {
     return (
       <KaimahiContext.Provider value={values}>
         <Router>
+          <NavBar />
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/signup" component={Signup} />
             <PrivateRoute currentUser={this.state.currentUser} exact path="/dashboard" component={Dashboard} />
             <PrivateRoute currentUser={this.state.currentUser} exact path="/leads/:lead_id" component={ViewLead} />
+            <PrivateRoute currentUser={this.state.currentUser} exact path="/" component={AddLead} />
             {/* <PrivateRoute currentUser={this.state.currentUser} exact path="/leads/:lead_id" component={DeleteLead} /> */}
           </Switch>
         </Router>

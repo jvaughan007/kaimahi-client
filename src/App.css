@@ -1,38 +1,90 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html, body {
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.addleadForm {
+  margin: auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.form-control label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.form-control input {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + .75rem + 2px);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+table {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #212529;
+}
+
+thead tr th {
+  color: #fff;
+  background-color: #343a40;
+  border-color: #454d55;
+  padding: .75rem;
+  vertical-align: top;
+}
+
+tbody tr td {
+  padding: .75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+
+button {
+  font-weight: 400;
   color: white;
+  background-color: #212529;
+  text-align: center;
+  border: 1px solid #212529;
+  padding: .375rem .75rem;
 }
 
-.App-link {
-  color: #61dafb;
+.dashboardContainer {
+  width: 800px;
+  margin: 0 auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.adminTools {
+  display: flex;
+}
+
+.adminTools > select {
+  flex: 1;
+}
+
+nav > a, nav > button {
+  background: none;
+  padding: 0;
+  border: 0;
+  color: #212529;
+  font-size: 16px !important;
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+nav > ul {
+  display: flex;
+  justify-content: flex-end;
 }
