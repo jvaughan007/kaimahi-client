@@ -46,10 +46,15 @@ class NavBar extends React.Component {
         return (
             <nav className="Nav">
                 <div className="Nav_container">
-                    <ul>
-                        <Link to="/">Home</Link>
-                        {currentUser.accessToken ? this.renderPrivateLinks() : this.renderPublicLinks()}
-                    </ul>
+                    <div className="appLogo">
+                        <h2>kaimahi</h2>
+                    </div>
+                    <div className="navLinks">
+                        <ul>
+                            <Link to="/">Home</Link>
+                            {currentUser.accessToken ? this.renderPrivateLinks() : this.renderPublicLinks()}
+                        </ul>
+                    </div>
                 </div>
             </nav>
         )

@@ -7,23 +7,6 @@ const HomePage = () => {
     </div>
 }
 
-// class NavBar extends React.Component {
-//     render() {
-//         return (
-//             <nav className="Nav">
-//                 <div className="Nav_container">
-//                     <ul>
-//                         <Link to="/">Home</Link>
-//                         <Link to="/dashboard">Dashboard</Link>
-//                         <Link to="/login">Login</Link>
-//                         <Link to="/signup">Signup</Link>
-//                     </ul>
-//                 </div>
-//             </nav>
-//         )
-//     }
-// };
-
 
 const WelcomeSection = () => {
     return (
@@ -34,8 +17,8 @@ const WelcomeSection = () => {
     )
 };
 
-const WelcomeHeader = () => <h2>Welcome to Kaimahi!</h2>;
-const WelcomeDescription = () => <h4>The Lead Management and Tracking App</h4>;
+const WelcomeHeader = () => <h2 className="welcome">Welcome to Kaimahi!</h2>;
+const WelcomeDescription = () => <h4 classname="welcomeDesc">The Lead Management and Tracking App</h4>;
 
 const AboutSection = () => {
         return (

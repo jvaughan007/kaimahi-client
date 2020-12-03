@@ -74,6 +74,7 @@ button {
   flex: 1;
 }
 
+
 nav > a, nav > button {
   background: none;
   padding: 0;
@@ -82,9 +83,19 @@ nav > a, nav > button {
   font-size: 16px !important;
   margin-right: 10px;
   text-decoration: none;
+  justify-content: space-evenly;
 }
 
 nav > ul {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-evenly;
+}
+
+.Nav_container {
+  display: flex;
+}
+
+.navLinks {
+  width: auto;
+
 }
