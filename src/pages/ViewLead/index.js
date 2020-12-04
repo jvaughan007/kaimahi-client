@@ -39,9 +39,11 @@ class ViewLead extends React.Component {
         console.log("lead", this.state.lead)
       return (
         <div>
-            {this.state.lead.name}
-            {this.state.lead.email}
-            {this.state.lead.phone}
+            <h2>{this.state.lead.name}</h2>
+            <ul>
+              <li>Email: {this.state.lead.email}</li>
+              <li>Phone: {this.state.lead.phone}</li>
+            </ul>
             <button onClick={DeleteLead}>Delete</button>
             <button type="button" onClick={(e) => {
                 e.preventDefault();

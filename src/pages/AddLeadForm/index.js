@@ -109,8 +109,10 @@ class AddLead extends Component {
                     <label for="lastContacted">Last Contacted:</label>
                     <input required type="datetime-local" name="lastContacted" id="lastContacted" value={lastContacted} onChange={this.handleChange} />
                 </div>
+                <div className="formButtons">
                 <button type="submit" className="signupButton" >{leadToEdit && leadToEdit.id ? 'Update' : 'Add Lead'}</button>
                 <button onClick={this.closeForm} type="button" className="signupButton" >Cancel</button>
+                </div>
             </form>
         </>
         )

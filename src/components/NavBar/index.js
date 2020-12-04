@@ -26,8 +26,8 @@ class NavBar extends React.Component {
     renderPublicLinks = () => {
         return (
             <>
-                <Link to="/login">Login</Link>
-                <Link to="/signup">Signup</Link>
+                <li><Link to="/login">Login</Link></li>
+                <li><Link to="/signup">Signup</Link></li>
             </>
         )
     }
@@ -35,8 +35,8 @@ class NavBar extends React.Component {
     renderPrivateLinks = () => {
         return (
             <>
-                <Link to="/dashboard">Dashboard</Link>
-                <button type="button" onClick={this.signOut}>Logout</button>
+                <li><Link to="/dashboard">Dashboard</Link></li>
+                <li><button type="button" onClick={this.signOut}>Logout</button></li>
             </>
         )
     }
@@ -50,8 +50,8 @@ class NavBar extends React.Component {
                         <h2>kaimahi</h2>
                     </div>
                     <div className="navLinks">
-                        <ul>
-                            <Link to="/">Home</Link>
+                        <ul className="navLinkList">
+                            <li><Link to="/">Home</Link></li>
                             {currentUser.accessToken ? this.renderPrivateLinks() : this.renderPublicLinks()}
                         </ul>
                     </div>

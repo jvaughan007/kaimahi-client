@@ -1,5 +1,11 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+}
+html {
+  width: fit-content;
 }
 
 html, body {
@@ -8,7 +14,18 @@ html, body {
 }
 
 .addleadForm {
-  margin: auto;
+  margin: 2rem;
+}
+
+.addleadForm > .formButtons {
+  display: flex;
+  margin: 2rem;
+  justify-content: center;
+}
+
+.formButtons > button {
+  margin: 1rem;
+  justify-content: center;
 }
 
 .form-control label {
@@ -66,8 +83,14 @@ button {
   margin: 0 auto;
 }
 
+.userHeader {
+  display: flex;
+  justify-content: center;
+}
+
 .adminTools {
   display: flex;
+  justify-content: center;
 }
 
 .adminTools > select {
@@ -83,19 +106,141 @@ nav > a, nav > button {
   font-size: 16px !important;
   margin-right: 10px;
   text-decoration: none;
-  justify-content: space-evenly;
+  justify-content: space;
+  width: 100%;
 }
 
-nav > ul {
-  display: flex;
-  justify-content: space-evenly;
+.appLogo h2 {
+  background-color: aqua;
 }
+
+.navLinkList > li {
+  background-color: aqua;
+  font-weight: bold;
+}
+
+.navLinkList > li > a {
+  text-decoration-line: none;
+  list-style-type: none;
+  margin-right: .5rem;
+  font-size: small;
+  background-color: aqua;
+}
+
+.navLinkList > li > a:hover {
+  font-style: italic ;
+}
+
+.navLinkList {
+  background-color: aqua;
+  display: flex;
+  align-items: baseline;
+  list-style: none;
+}
+
+
 
 .Nav_container {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0%;
+  background-color: aqua;
 }
 
-.navLinks {
-  width: auto;
+.leadTool {
+  margin: 1rem 1.5rem;
+}
 
+.userHeader {
+  margin: 1.5rem;
+}
+
+.tableHeader {
+  font-size: 32px;
+}
+
+.viewedUser {
+  font-size: 48px;
+}
+
+.welcome {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.welcomeDesc {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.Overview {
+  margin-bottom: 2rem;
+}
+
+.Overview > h3, .Features > h3 {
+  display: flex;
+  margin-bottom: .5rem;
+  justify-content: center;
+}
+
+.Overview > p {
+  display: flex;
+  margin-bottom: .5rem;
+  justify-content: center;
+  text-align: justify;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+
+
+
+.Features {
+  display: flex;
+}
+
+.Features > h3 {
+  align-items: center;
+}
+
+.Features > ul > li  {
+  display: inline-block;
+  justify-content: center;
+  margin-left: 1rem;
+  margin-bottom: .5rem;
+}
+
+@media screen and (min-width: 767px) {
+  
+  .Features {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Features > h3 {
+    justify-content: center;
+  }
+  
+  .Features > ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    
+  }
+
+  .Features > ul > li {
+    list-style-type: circle;
+  }
+
+}
+
+@media screen and (min-width: 1023px) {
+  html {
+    width: 100%;
+  }
 }

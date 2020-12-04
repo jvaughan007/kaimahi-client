@@ -21,11 +21,11 @@ const ListLeads = (props) => (
       <tbody>
         {props.leads.map(lead => (
           <tr key={lead.id}>
-            <td><Link to={`/leads/${lead.id}`}>{lead.name}</Link></td>
+            <td>{lead.name}</td>
             <td>{new Date(lead.lastContacted).toLocaleDateString()}</td>
             <td>{lead.phone}</td>
             <td>{lead.email}</td>
-            <th><button onClick={() => props.editLead(lead)}>Edit</button><button onClick={() => props.handleDelete(lead)}>Delete</button></th>
+            <th><button className="leadTool" onClick={() => props.editLead(lead)}>Edit</button><button className="leadTool" onClick={() => props.handleDelete(lead)}>Delete</button></th>
           </tr>
         ))}
       </tbody>
@@ -88,7 +88,9 @@ class Dashboard extends React.Component {
               'authorization': currentUser.accessToken
           }
       })
-      .then(res => res.json())
+      .then(res => {
+        console.log(res)
+        return res.json()})
       .then(data => {
           this.setState({
             leads: data
@@ -110,7 +112,7 @@ class Dashboard extends React.Component {
       return (
         <div className="dashboardContainer">
         <div className= "userHeader">
-          <h2 className="viewedUser">{this.context.currentUser.name}</h2>
+          <h2 className="viewedUser">{this.context.currentUser.name}'s Dashboard</h2>
         </div>
         <div className="adminTools">
         
@@ -118,11 +120,12 @@ class Dashboard extends React.Component {
         </div>
         <div className="marketers" style={{display: "grid", justifyContent: "center"}}>
           <div className="usernameContainer" style={{display: "flex", justifyContent: "align-left"}}>
-          <h3 className="adminSectionHeader" style={{ marginLeft: "20px" }}>Leads</h3>
+          
           </div>
           {this.state.showLeadForm ? <div className="AddLeadForm">
             <AddLead leadToEdit={this.state.leadToEdit} toggleForm={this.toggleForm} />
           </div> : null}
+          <h3 className="tableHeader" style={{ marginLeft: "20px" }}>Leads</h3>
           <ListLeads editLead={this.editLead} leads={this.state.leads} handleDelete={this.handleDelete } />
         </div>
       </div>

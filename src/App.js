@@ -62,7 +62,7 @@ class App extends Component {
             <Route exact path="/signup" component={Signup} />
             <PrivateRoute currentUser={this.state.currentUser} exact path="/dashboard" component={Dashboard} />
             <PrivateRoute currentUser={this.state.currentUser} exact path="/leads/:lead_id" component={ViewLead} />
-            <PrivateRoute currentUser={this.state.currentUser} exact path="/" component={AddLead} />
+            {/* <PrivateRoute currentUser={this.state.currentUser} exact path="/" component={AddLead} /> */}
           </Switch>
         </BrowserRouter>
       </KaimahiContext.Provider>
