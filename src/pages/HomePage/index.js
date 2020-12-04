@@ -18,7 +18,7 @@ const WelcomeSection = () => {
 };
 
 const WelcomeHeader = () => <h2 className="welcome">Welcome to Kaimahi!</h2>;
-const WelcomeDescription = () => <h4 classname="welcomeDesc">The Lead Management and Tracking App</h4>;
+const WelcomeDescription = () => <h4 className="welcomeDesc">The Lead Management and Tracking App</h4>;
 
 const AboutSection = () => {
         return (

@@ -1,9 +1,9 @@
 import React, { Component, useEffect, useState } from "react";
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
-  Redirect
+  Redirect,
+  BrowserRouter
 } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
@@ -15,8 +15,9 @@ import KaimahiContext from "./KaimahiContext";
 import Signup from "./pages/Signup";
 import './App.css';
 
-const PrivateRoute = ({component: Component, currentUser, ...rest}) => {
+export const PrivateRoute = ({component: Component, currentUser, ...rest}) => {
   const [loading, setLoading] = useState(true)
+  console.log('herec')
   useEffect(() => {
     if(currentUser.accessToken) {
       setLoading(false);
@@ -53,7 +54,7 @@ class App extends Component {
     }
     return (
       <KaimahiContext.Provider value={values}>
-        <Router>
+        <BrowserRouter>
           <NavBar />
           <Switch>
             <Route exact path="/" component={HomePage} />
@@ -63,7 +64,7 @@ class App extends Component {
             <PrivateRoute currentUser={this.state.currentUser} exact path="/leads/:lead_id" component={ViewLead} />
             <PrivateRoute currentUser={this.state.currentUser} exact path="/" component={AddLead} />
           </Switch>
-        </Router>
+        </BrowserRouter>
       </KaimahiContext.Provider>
     );
   }

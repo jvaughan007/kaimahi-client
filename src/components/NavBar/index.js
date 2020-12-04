@@ -44,7 +44,7 @@ class NavBar extends React.Component {
     render() {
         const { currentUser } = this.context;
         return (
-            <nav className="Nav">
+            <nav data-testid="navBar" className="Nav">
                 <div className="Nav_container">
                     <div className="appLogo">
                         <h2>kaimahi</h2>

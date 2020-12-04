@@ -1,55 +1,79 @@
 import React, { Component } from "react";
 import config from '../../config';
+import KaimahiContext from "../../KaimahiContext";
 
 
 
 
 class AddLead extends Component {
+    static contextType = KaimahiContext;
     constructor(props) {
         super(props)
         this.state = {
             name: null,
             email: null,
             phone: null,
-            last_contacted: null,
+            lastContacted: null,
         };
     }
 
-    componentDidUpdate() {
-       
-        console.log( this.props)
-       
+    setLeadInState = (leadToEdit) => {
+        this.setState({
+            name: leadToEdit.name,
+            email: leadToEdit.email,
+            phone: leadToEdit.phone,
+            lastContacted: leadToEdit.lastContacted.substring(0, leadToEdit.lastContacted.length - 8),
+        })
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.leadToEdit !== this.props.leadToEdit) {
+            this.setLeadInState(this.props.leadToEdit)
+        }
+    }
+
+    componentDidMount() {
+        if (this.props.leadToEdit && this.props.leadToEdit.id) {
+            this.setLeadInState(this.props.leadToEdit)
+        }
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
         let url = `${config.CONFIG_API_ENDPOINT}/api/v1/leads`;
-        let optionsForFetch = {
-            method: 'POST',
+        const { currentUser } = this.context;
+        const data = {
+            name: this.state.name,
+            email: this.state.email,
+            phone: this.state.phone,
+            last_contacted: this.state.lastContacted,
+            account_id: currentUser.id
+        }
+        const headersAndData = {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
+                'authorization': currentUser.accessToken
             },
-            body: JSON.stringify(this.state)
+            body: JSON.stringify(data)
+        }
+        let optionsForFetch = {
+            method: 'POST',
+            ...headersAndData
         };
         if (this.props.leadToEdit.id) {
             url = `${config.CONFIG_API_ENDPOINT}/api/v1/leads/${this.props.leadToEdit.id}`;
             optionsForFetch = {
                 method: 'PATCH',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(this.state)
+                ...headersAndData
             }
         }
         fetch(url, optionsForFetch)
         .then(res => res.json())
-        .then((data) => {
+        .then((resp) => {
             this.closeForm();
             window.location.href='/dashboard';
         })
-        
     }
 
     handleChange = (e) => {
@@ -62,23 +86,9 @@ class AddLead extends Component {
         this.props.toggleForm();
     }
 
-    static getDerivedStateFromProps(nextProps, prevState){
-        const { leadToEdit } = nextProps;
-        if(leadToEdit){
-            return {
-                name: leadToEdit.name,
-                email: leadToEdit.email,
-                phone: leadToEdit.phone,
-                last_contacted: leadToEdit.last_contacted
-            };
-       }
-       else return null;
-     }
-
     render() {
-        const { name, email, phone, last_contacted } = this.state
+        const { name, email, phone, lastContacted } = this.state
         const { leadToEdit } = this.props;
-        console.log(leadToEdit)
         return (
         <>
             <h3 class="leadFormHeader">{leadToEdit && leadToEdit.id ? `Edit ${leadToEdit.name}` : 'Add a new lead'}</h3>
@@ -96,10 +106,10 @@ class AddLead extends Component {
                     <input required type="text" name="phone" id="phone" value={phone} onChange={this.handleChange} placeholder="+44(0)257362" />
                 </div>
                 <div className="form-control">
-                    <label for="last_contacted">Last Contacted:</label>
-                    <input required type="datetime-local" name="last_contacted" id="date" value={last_contacted} onChange={this.handleChange} />
+                    <label for="lastContacted">Last Contacted:</label>
+                    <input required type="datetime-local" name="lastContacted" id="lastContacted" value={lastContacted} onChange={this.handleChange} />
                 </div>
-                <button type="submit" className="signupButton" >Add Lead</button>
+                <button type="submit" className="signupButton" >{leadToEdit && leadToEdit.id ? 'Update' : 'Add Lead'}</button>
                 <button onClick={this.closeForm} type="button" className="signupButton" >Cancel</button>
             </form>
         </>

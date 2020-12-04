@@ -25,9 +25,9 @@ class ViewLead extends React.Component {
       })
       .then(res => res.json())
       .then(data => {
-          this.setState({
-            lead: data
-          })
+        this.setState({
+          lead: data
+      })
       }).catch(e => {
           console.log(e)
       })
@@ -36,7 +36,7 @@ class ViewLead extends React.Component {
     
 
     render() {
-        console.log(this.state.lead)
+        console.log("lead", this.state.lead)
       return (
         <div>
             {this.state.lead.name}

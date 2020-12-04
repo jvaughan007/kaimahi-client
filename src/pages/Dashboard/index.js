@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import AddLead from "../AddLeadForm";
 
 
+
 const ListLeads = (props) => (
   <div className="leadsTable">
     <table className="center">
@@ -21,10 +22,10 @@ const ListLeads = (props) => (
         {props.leads.map(lead => (
           <tr key={lead.id}>
             <td><Link to={`/leads/${lead.id}`}>{lead.name}</Link></td>
-            <td>{new Date(lead.lastContacted).toLocaleString()}</td>
+            <td>{new Date(lead.lastContacted).toLocaleDateString()}</td>
             <td>{lead.phone}</td>
             <td>{lead.email}</td>
-            <th><button onClick={() => props.editLead(lead)}>Edit</button><button>Delete</button></th>
+            <th><button onClick={() => props.editLead(lead)}>Edit</button><button onClick={() => props.handleDelete(lead)}>Delete</button></th>
           </tr>
         ))}
       </tbody>
@@ -46,6 +47,29 @@ class Dashboard extends React.Component {
       if (e.target.value === 1) {
 
       }
+    }
+    
+    handleDelete = (lead) => {
+      const { currentUser } = this.context
+      fetch(`${config.CONFIG_API_ENDPOINT}/api/v1/leads/${lead.id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+              'authorization': currentUser.accessToken
+        }
+      })
+      .then(res => res.json())
+      .then(data => {
+          this.setState({
+            leads: data
+          })
+      })
+      .then(
+        window.location.href='/dashboard'
+      ).catch(e => {
+          console.log(e)
+      })
+      
     }
 
     editLead = (lead) => {
@@ -89,12 +113,7 @@ class Dashboard extends React.Component {
           <h2 className="viewedUser">{this.context.currentUser.name}</h2>
         </div>
         <div className="adminTools">
-          <select onChange={this.handleFilter}>
-            <option name="Default" value="0">Filter By:</option>
-            <option name="RatingHighToLow" value="1">Rating (High to Low)</option>
-            <option name="RatingLowToHigh" value="2">Rating (Low to High)</option>
-            <option name="RcentlyContacted" value="3">Recently Contacted</option>
-          </select>
+        
           <button onClick={this.toggleForm} type="button">Add lead</button>
         </div>
         <div className="marketers" style={{display: "grid", justifyContent: "center"}}>
@@ -104,7 +123,7 @@ class Dashboard extends React.Component {
           {this.state.showLeadForm ? <div className="AddLeadForm">
             <AddLead leadToEdit={this.state.leadToEdit} toggleForm={this.toggleForm} />
           </div> : null}
-          <ListLeads editLead={this.editLead} leads={this.state.leads} />
+          <ListLeads editLead={this.editLead} leads={this.state.leads} handleDelete={this.handleDelete } />
         </div>
       </div>
       )
