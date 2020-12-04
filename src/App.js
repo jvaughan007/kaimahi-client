@@ -9,7 +9,6 @@ import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import Dashboard from "./pages/Dashboard";
 import ViewLead from "./pages/ViewLead";
-import AddLead from "./pages/AddLeadForm"
 import NavBar from "./components/NavBar";
 import KaimahiContext from "./KaimahiContext";
 import Signup from "./pages/Signup";
