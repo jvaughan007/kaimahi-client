@@ -40,8 +40,14 @@ class LoginPage extends Component {
     render() {
         return (
             <form onSubmit={this.loginAction}>
-                <input onChange={this.changeValue} type="email" name="email" />
-                <input onChange={this.changeValue} type="password" name="password" />
+                <div className="form-control">
+                <label for="email">E-mail:</label>
+                <input onChange={this.changeValue} type="email" name="email" id="email"/>
+                </div>
+                <div className="form-control">
+                <label for="password">Password:</label>
+                <input onChange={this.changeValue} type="password" name="password" id="password" />
+                </div>
                 <button type="submit">Login</button>
             </form>
         )

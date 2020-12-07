@@ -65,12 +65,18 @@ class Signup extends Component {
         <h3 className="signupHeader">Sign-Up</h3>
         <div className="signupForm"> 
             <form ref="form" onSubmit={this.handleSubmit}>
-                <label for="name">Name:</label>
-                <input type="text" id="name" value={name} onChange={this.handleNameChange} placeholder="John Doe" />
-                <label for="email">E-Mail:</label>
-                <input type="text" id="email" value={email} onChange={this.handleEmailChange} placeholder="johndoe@address.com" />
-                <label for="password">Password:</label>
-                <input type="text" id="password" value={password} onChange={this.handlePasswordChange} placeholder="Type Here" />
+                <div className="form-control">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" value={name} onChange={this.handleNameChange} placeholder="John Doe" />
+                </div>
+                <div className="form-control">
+                    <label for="email">E-Mail:</label>
+                    <input type="text" id="email" value={email} onChange={this.handleEmailChange} placeholder="johndoe@address.com" />
+                </div>
+                <div className="form-control">
+                    <label for="password">Password:</label>
+                    <input type="text" id="password" value={password} onChange={this.handlePasswordChange} placeholder="Type Here" />
+                </div>
                 <button type="submit" className="signupButton" >Register</button>
             </form>
         </div>  
