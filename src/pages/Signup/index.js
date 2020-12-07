@@ -24,7 +24,7 @@ class Signup extends Component {
             })
         })
         .then(res => res.json())
-        .then(data => {
+        .then(() => {
             window.location.href='/login';
         })
         
