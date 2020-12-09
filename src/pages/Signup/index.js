@@ -75,7 +75,7 @@ class Signup extends Component {
                 </div>
                 <div className="form-control">
                     <label for="password">Password:</label>
-                    <input type="text" id="password" value={password} onChange={this.handlePasswordChange} placeholder="Type Here" />
+                    <input type="password" id="password" value={password} onChange={this.handlePasswordChange} placeholder="Type Here" />
                 </div>
                 <button type="submit" className="signupButton" >Register</button>
             </form>

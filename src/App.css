@@ -138,7 +138,9 @@ nav > a, nav > button {
   list-style: none;
 }
 
-
+.Nav {
+  width: 100vw;
+}
 
 .Nav_container {
   display: flex;
