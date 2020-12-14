@@ -10,11 +10,35 @@ This application is a simple, no-frills way to orgnize your sales leads. Utilizi
 
 # How it works
 
-Upon reaching the homepage at https://kaimahi-client.vercel.app/ you can navigate to the signup page by clicking 'Signup' in the navigation bar at the top right of the page. Fill out the form and create your account by hitting the 'Register' button and you'll be redirected to the login page (which can be reached from the homepage if you are already a registerd user). Log in with your email and password and you will be redirected to your dashboard, which will show all of your leads in an easy to read table. 
+Upon reaching the homepage at https://kaimahi-client.vercel.app/ you can navigate to the signup page by clicking 'Signup' in the navigation bar at the top right of the page.
+
+
+<img src='screenshots/kaimahiHome_browser.png'/>
+<img src='screenshots\kaimahidashboard_mobile.png'/>
+
+
+ Fill out the form and create your account by hitting the 'Register' button and you'll be redirected to the login page (which can be reached from the homepage if you are already a registerd user). 
+ 
+
+ <img src='screenshots\kaimahiLogin_browser.png'/>
+ <img src='screenshots\kaimahiLogin_mobile.png'/>
+ 
+
+ Log in with your email and password and you will be redirected to your dashboard, which will show all of your leads in an easy to read table. 
+
+
+<img src='screenshots\kaimahidashboard_browser.png'/>
+<img src='screenshots\kaimahidashboard_mobile.png'/>
+
 
 To add leads, simply click the 'Add lead' button and a form will be generated. Fill out the form and click the 'Add/lead' button at the bottom of the form and your new lead will be added to your list!
 
-Should you wish to edit or update your leads' information, simply click the 'edit' button at the end of the row of the corresponding lead you wish to edit. 
+
+<img src='screenshots\kaimahidashboard_addlead.png'/>
+<img src='screenshots\addleadform_mobile.png'/>
+
+
+Should you wish to edit or update your leads' information, simply click the 'edit' button at the end of the row of the corresponding lead you wish to edit.
 
 Want to remove a lead from your list? Simply click the 'Delete' button for your lead and away they go!
 
