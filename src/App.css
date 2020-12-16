@@ -187,6 +187,27 @@ nav > a, nav > button {
   margin: 1rem 1.5rem;
 }
 
+.leadView {
+  margin: 15px 15px;
+  background-color: white;
+  padding: 15px 10px;
+}
+
+.leadView ul {
+  padding: 10px 0;
+  margin: 10px 0;
+  list-style-type: none;
+  
+}
+
+.leadView ul li {
+  margin-bottom: 5px;
+}
+
+.leadView button {
+  margin: 10px 10px 10px 0;
+}
+
 .userHeader {
   margin: 1.5rem;
 }

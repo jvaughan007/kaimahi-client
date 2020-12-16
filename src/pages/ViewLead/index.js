@@ -50,11 +50,11 @@ class ViewLead extends React.Component {
 
     render() {
       return (
-        <div>
+        <div className="leadView">
             <h2>{this.state.lead.name}</h2>
             <ul>
-              <li>Email: {this.state.lead.email}</li>
-              <li>Phone: {this.state.lead.phone}</li>
+              <li><b>Email:</b> <a href={`tel:${this.state.lead.email}`}>{this.state.lead.email}</a></li>
+              <li><b>Phone:</b> <a href={`tel:${this.state.lead.phone}`}>{this.state.lead.phone}</a></li>
             </ul>
             <button onClick={() => this.handleDelete()}>Delete</button>
             <button type="button" onClick={this.goBack}>Go Back</button>
