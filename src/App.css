@@ -148,6 +148,13 @@ nav > a, nav > button {
   color: white;
 }
 
+.navLinkList button {
+  border: none;
+  padding: 0;
+  font-weight: bold;
+  font-size: 16px !important;
+}
+
 .navLinkList > li > a:hover {
   font-style: italic ;
 }
