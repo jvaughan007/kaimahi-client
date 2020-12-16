@@ -2,45 +2,57 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: #fff;
-}
-html {
-  width: 100%;
 }
 
 html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
+  background-color: #e0e0e0;
 }
 
-.addleadForm {
-  margin: 2rem;
-}
-
-.addleadForm > .formButtons {
-  display: flex;
-  margin: 2rem;
-  justify-content: center;
+.addleadForm .formButtons {
+  text-align: end;
+  margin: 15px 0px;
 }
 
 .formButtons > button {
-  margin: 1rem;
-  justify-content: center;
+  margin-left: 10px;
 }
 
 .loginForm, .signupForm {
-  margin: 3rem;
+  background: white;
+  padding: 50px;
+  border-radius: 5px;
+}
+
+.loginForm h1 {
+  margin: 15px 0;
+  text-align:center;
 }
 
 .loginFormButton, .signupFormButton {
-  display: flex;
-  margin: 1rem;
-  justify-content: center;
+  margin: 15px 0;
+  text-align: right;
+}
+
+.loginFormButton button, .signupFormButton button {
+  padding: 0.75rem 1rem;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.form-control {
+  margin: 10px 0;
 }
 
 .form-control label {
   display: block;
-  margin-bottom: 10px;
+  font-weight: bold;
+  letter-spacing: 0.8;
+  margin-bottom: 5px;
 }
 
 .form-control input {
@@ -95,7 +107,7 @@ button {
 
 .userHeader {
   display: flex;
-  justify-content: center;
+
 }
 
 .adminTools {
@@ -121,20 +133,19 @@ nav > a, nav > button {
 }
 
 .appLogo h2 {
-  background-color: aqua;
+  background-color: #272828;
+  color: white;
 }
 
 .navLinkList > li {
-  background-color: aqua;
+  background-color: #272828;
   font-weight: bold;
 }
 
 .navLinkList > li > a {
-  text-decoration-line: none;
-  list-style-type: none;
+  text-decoration: none;
   margin-right: .5rem;
-  font-size: small;
-  background-color: aqua;
+  color: white;
 }
 
 .navLinkList > li > a:hover {
@@ -142,7 +153,7 @@ nav > a, nav > button {
 }
 
 .navLinkList {
-  background-color: aqua;
+  background-color: #272828;
   display: flex;
   align-items: baseline;
   list-style: none;
@@ -156,8 +167,13 @@ nav > a, nav > button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 0%;
-  background-color: aqua;
+  padding: 10px 15px;
+  background-color: #272828;
+}
+
+.AddLeadForm {
+  margin: 10px;
+  border-bottom: 1px solid #c3c3c3;
 }
 
 .leadTool {
@@ -174,6 +190,7 @@ nav > a, nav > button {
 
 .viewedUser {
   font-size: large;
+  flex: 1;
 }
 
 .welcome {
@@ -214,7 +231,43 @@ nav > a, nav > button {
 
 .leadsTable {
   overflow-x: auto;
-  overflow-y:auto;
+}
+
+.tableHeader {
+  margin: 10px;
+}
+
+.leadsList {
+  padding: 0;
+  margin: 0 10px;
+  list-style: none;
+}
+
+.leadsList li {
+  display: flex;
+  flex-wrap: wrap;
+  background: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  align-items: center;
+  border: 1px solid lightgrey;
+  margin-bottom: 15px;
+}
+
+.leadsList .leadsDetails {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.last-contacted-date {
+  color: #757575;
+  font-weight: bold;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.leadsList button {
+  margin: 10px 10px 10px 0;
 }
 
 .Features {
@@ -233,7 +286,23 @@ nav > a, nav > button {
 }
 
 @media screen and (min-width: 767px) {
-  
+  .loginForm, .signupForm {
+    margin: 50px auto;
+    width: 600px;
+  }
+
+  .dashboardContainer {
+    width: 600px;
+  }
+
+  .leadsList .leadsDetails {
+    flex: 1;
+  }
+
+  .leadsList button {
+    margin: 0 0 0 10px;
+  }
+
   .Features {
     display: flex;
     justify-content: center;

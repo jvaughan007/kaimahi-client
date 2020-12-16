@@ -4,33 +4,25 @@ import config from "../../config";
 import { Link } from "react-router-dom";
 import AddLead from "../AddLeadForm";
 
-
-
-const ListLeads = (props) => (
-  <div className="leadsTable">
-    <table className="center">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Last Contacted</th>
-          <th>Phone</th>
-          <th>Email</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        {props.leads.map(lead => (
-          <tr key={lead.id}>
-            <td>{lead.name}</td>
-            <td>{new Date(lead.lastContacted).toLocaleDateString()}</td>
-            <td>{lead.phone}</td>
-            <td>{lead.email}</td>
-            <th><button className="leadTool" onClick={() => props.editLead(lead)}>Edit</button><button className="leadTool" onClick={() => props.handleDelete(lead)}>Delete</button></th>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
+const ListLeadsUL = (props) => (
+  <ul className="leadsList">
+    {props.leads.map(lead => (
+      <li key={lead.id}>
+        <div className="leadsDetails">
+          <b><Link to={`/leads/${lead.id}`}>{lead.name}</Link></b><br />
+          <a href={`tel:${lead.phone}`}>{lead.phone}</a><br />
+          <a href={`mailto:${lead.email}`}>{lead.email}</a><br />
+          <div className="last-contacted-date">
+            Last contacted on {new Date(lead.lastContacted).toLocaleDateString()}
+          </div>
+        </div>
+        <div>
+          <button onClick={() => props.editLead(lead)}>Edit</button>
+          <button onClick={() => props.handleDelete(lead)}>Delete</button>
+        </div>
+      </li>
+    ))}
+  </ul>
 )
 
 class Dashboard extends React.Component {
@@ -43,7 +35,6 @@ class Dashboard extends React.Component {
     }
 
     handleFilter = (e) => {
-      console.log(e.target.value);
       if (e.target.value === 1) {
 
       }
@@ -55,21 +46,14 @@ class Dashboard extends React.Component {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
-              'authorization': currentUser.accessToken
+          'authorization': currentUser.accessToken
         }
       })
-      .then(res => res.json())
-      .then(data => {
-          this.setState({
-            leads: data
-          })
+      .then(() => {
+        this.fetchLeads();
+      }).catch(e => {
+        console.error(e)
       })
-      .then(
-        window.location.href='/dashboard'
-      ).catch(e => {
-          console.log(e)
-      })
-      
     }
 
     editLead = (lead) => {
@@ -80,23 +64,26 @@ class Dashboard extends React.Component {
     }
 
     componentDidMount() {
+      this.fetchLeads();
+    }
+
+    fetchLeads = () => {
       const { currentUser } = this.context
       fetch(`${config.CONFIG_API_ENDPOINT}/api/v1/accounts/${currentUser.id}`, {
-          method: 'GET',
-          headers: {
-              'Content-Type': 'application/json',
-              'authorization': currentUser.accessToken
-          }
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'authorization': currentUser.accessToken
+        }
       })
       .then(res => {
-        console.log(res)
-        return res.json()})
-      .then(data => {
-          this.setState({
-            leads: data
-          })
+        return res.json()
+      }).then(data => {
+        this.setState({
+          leads: data
+        })
       }).catch(e => {
-          console.log(e)
+        console.error(e)
       })
     }
 
@@ -113,20 +100,16 @@ class Dashboard extends React.Component {
         <div className="dashboardContainer">
         <div className= "userHeader">
           <h2 className="viewedUser">{this.context.currentUser.name}'s Dashboard</h2>
-        </div>
-        <div className="adminTools">
-        
-          <button onClick={this.toggleForm} type="button">Add lead</button>
-        </div>
-        <div className="marketers" style={{display: "grid", justifyContent: "center"}}>
-          <div className="usernameContainer" style={{display: "flex", justifyContent: "align-left"}}>
-          
+          <div className="adminTools">
+            <button onClick={this.toggleForm} type="button">Add lead</button>
           </div>
+        </div>
+        <div className="marketers">
           {this.state.showLeadForm ? <div className="AddLeadForm">
             <AddLead leadToEdit={this.state.leadToEdit} toggleForm={this.toggleForm} />
           </div> : null}
-          <h3 className="tableHeader" style={{ marginLeft: "20px" }}>Leads</h3>
-          <ListLeads editLead={this.editLead} leads={this.state.leads} handleDelete={this.handleDelete } />
+          <h3 className="tableHeader">Leads</h3>
+          <ListLeadsUL editLead={this.editLead} leads={this.state.leads} handleDelete={this.handleDelete } />
         </div>
       </div>
       )

@@ -16,7 +16,6 @@ import './App.css';
 
 export const PrivateRoute = ({component: Component, currentUser, ...rest}) => {
   const [loading, setLoading] = useState(true)
-  console.log('herec')
   useEffect(() => {
     if(currentUser.accessToken) {
       setLoading(false);
