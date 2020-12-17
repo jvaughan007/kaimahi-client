@@ -10,39 +10,60 @@ This application is a simple, no-frills way to orgnize your sales leads. Utilizi
 
 # How it works
 
+## Homepage
 Upon reaching the homepage at https://kaimahi-client.vercel.app/ you can navigate to the signup page by clicking 'Signup' in the navigation bar at the top right of the page.
 
+<img src='screenshots\homepage_desktop.png'/>
 
-<img src='screenshots/kaimahiHome_browser.png'/>
-<img src='screenshots\kaimahidashboard_mobile.png'/>
+<img src='screenshots\homepage_mobile.png'/>
 
-
- Fill out the form and create your account by hitting the 'Register' button and you'll be redirected to the login page (which can be reached from the homepage if you are already a registerd user). 
+## Signup
+Fill out the form and create your account by hitting the 'Register' button and you'll be redirected to the login page (which can be reached from the homepage if you are already a registerd user). 
  
+<img src='screenshots\signup_desktop.png'/>
 
- <img src='screenshots\kaimahiLogin_browser.png'/>
- <img src='screenshots\kaimahiLogin_mobile.png'/>
+<img src='screenshots\signup_mobile.png'/>
  
+## Login
+Log in with your email and password (**a demo user is already provided in the form automatically**) and you will be redirected to your dashboard, which will show all of your leads in an easy to read table. 
 
- Log in with your email and password and you will be redirected to your dashboard, which will show all of your leads in an easy to read table. 
+<img src='screenshots\login_desktop.png'/>
+
+<img src='screenshots\login_mobile.png'/>
+
+## Dashboard & Leads
+To add leads, simply click the 'Add lead' button and a form will be generated. Fill out the form and click the 'Submit' button at the bottom of the form and your new lead will be added to your list!
+
+<img src='screenshots\dashboard_desktop.png'/>
+<img src='screenshots\addLeadForm_desktop.png'/>
+
+<img src='screenshots\dashboard_mobile.png'/>
+<img src='screenshots\addLeadForm_mobile.png'/>
+
+## Leads Tools & Features
+
+<img src='screenshots\leadstools.png'/>
+
+1.) Should you wish to edit or update your leads' information, simply click the 'edit' button at the end of the row of the corresponding lead you wish to edit.
+
+2.) Want to remove a lead from your list? Simply click the 'Delete' button for your lead and away they go!
+
+3.) You can directly call or email a lead from your dashboard by cicking the libks for either the phone number or email!
+
+4.) Want to view a specific lead's details only? Click on the name of any lead and be redirected to a view for just that specific lead! From here you can go back to the Dashboard by clicking the "Go Back button or delete the lead by clicking the "Delete" button.
+
+<img src='screenshots\viewLead_desktop.png'/>
+
+<img src='screenshots\viewLead_mobile.png'/>
 
 
-<img src='screenshots\kaimahidashboard_browser.png'/>
-<img src='screenshots\kaimahidashboard_mobile.png'/>
+## Logout
 
+Don't forget to log out when you are finished by hitting the 'Logout' button at the top right of the navigation bar!
 
-To add leads, simply click the 'Add lead' button and a form will be generated. Fill out the form and click the 'Add/lead' button at the bottom of the form and your new lead will be added to your list!
+<img src='screenshots\logout_desktop.png'/>
 
-
-<img src='screenshots\kaimahidashboard_addlead.png'/>
-<img src='screenshots\addleadform_mobile.png'/>
-
-
-Should you wish to edit or update your leads' information, simply click the 'edit' button at the end of the row of the corresponding lead you wish to edit.
-
-Want to remove a lead from your list? Simply click the 'Delete' button for your lead and away they go!
-
-Don't forget to log out when you are finished by hitting the 'Logout' button t the top right of the navigation bar!
+<img src='screenshots\logout_mobile.png'/>
 
 We wish you all the best of luck with your sales and thank you for using kaimahi!
 
